@@ -1,0 +1,11 @@
+{
+  "com.badlogic.gdx.graphics.g2d.BitmapFont": {
+    "default-font": {
+      "file": "fonts/default.fnt",
+      "imagePath": "fonts/default.png",
+      "size": 16
+    },
+
+
+  }
+}
