@@ -24,7 +24,7 @@ public class GameScreen implements Screen{
     private Image i1,health1,health2,fuel;
     private Skin skin;
     private Texture texture,tank1image,tank2image;
-    private TextButton fire,pause;
+    private TextButton fire,pause,power;
     private SpriteBatch batch;
     private Sprite sprite;
     private Table table;
@@ -44,6 +44,7 @@ public class GameScreen implements Screen{
         this.health1 = new Image(new Texture(Gdx.files.internal("P1FullHealth.png")));
         this.health2 = new Image(new Texture(Gdx.files.internal("P2zeroHealth.png")));
         this.fire = new TextButton("Fire", skin);
+        this.power=new TextButton("Power",skin);
         this.pause = new TextButton("Pause", skin);
         this.tank1image=new Texture(Gdx.files.internal("Blazer1.png"));
         this.tank2image=new Texture(Gdx.files.internal("Helios1.png"));
@@ -62,15 +63,22 @@ public class GameScreen implements Screen{
         background.setPosition(0, 0);
         i1.setSize(100,100);
         i1.setPosition(200,350);
+
         fuel.setSize(125,75);
         fuel.setPosition(0,-20);
+
         health1.setSize(125,75);
         health1.setPosition(75,360);
         health2.setSize(125,75);
         health2.setPosition(300,360);
+
         fire.setWidth(100);
         fire.setHeight(50);
         fire.setPosition(300,0);
+
+        power.setWidth(100);
+        power.setHeight(50);
+        power.setPosition(10,40);
 
         pause.setWidth(60);
         pause.setHeight(50);
@@ -82,6 +90,7 @@ public class GameScreen implements Screen{
             }
         });
 
+        stage.addActor(power);
         stage.addActor(pause);
         stage.addActor(fire);
         stage.addActor(health2);
