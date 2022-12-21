@@ -5,10 +5,13 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
@@ -36,23 +39,23 @@ public class Application extends Game {
     private Sound sound;
     private Music music;
 
-
     @Override
     public void create () {
         batch = new SpriteBatch();
+        //this.setScreen(new PlayingScreen(this));
         this.setScreen(new Main_Screen(this));
         //this.setScreen(new ChooseP1Tank(this));
 
         font = new BitmapFont();
         font.setColor(1, 1, 1, 1);
         assets = new AssetManager();
+
         //Sound sound = Gdx.audio.newSound(Gdx.files.internal("sounds/mixkit-water-sci-fi-bleep-902.wav"));
         Music music = Gdx.audio.newMusic(Gdx.files.internal("sounds/file_example_WAV_5MG.wav"));
 
         music.setLooping(true);
         music.setVolume(1.0f);
         music.play();
-
     }
 
     @Override

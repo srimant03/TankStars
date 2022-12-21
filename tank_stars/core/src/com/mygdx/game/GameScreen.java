@@ -3,11 +3,17 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Box2D;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -103,6 +109,7 @@ public class GameScreen implements Screen{
     public void render(float delta) {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(Gdx.gl.GL_COLOR_BUFFER_BIT);
+        update(Gdx.graphics.getDeltaTime());
         //update(delta);
         stage.draw();
 
@@ -145,6 +152,11 @@ public class GameScreen implements Screen{
 
     }
 
+
+    public void update(float delta) {
+        stage.act(delta);
+    }
+
     @Override
     public void pause() {
 
@@ -162,6 +174,10 @@ public class GameScreen implements Screen{
 
     @Override
     public void dispose() {
-
+        stage.dispose();
+        skin.dispose();
+        texture.dispose();
+        tank1image.dispose();
+        tank2image.dispose();
     }
 }
